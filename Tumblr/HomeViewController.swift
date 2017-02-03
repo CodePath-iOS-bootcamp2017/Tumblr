@@ -9,6 +9,7 @@
 
 import UIKit
 import AFNetworking
+import SVProgressHUD
 
 class HomeViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
@@ -21,12 +22,25 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         super.viewDidLoad()
         self.postTableView.delegate = self
         self.postTableView.dataSource = self
+        
+        postTableView.rowHeight = UITableViewAutomaticDimension
+        postTableView.estimatedRowHeight = 120
+        
         loadFromNetwork()
+        
+        let refreshControl = UIRefreshControl()
+        refreshControl.addTarget(self, action: #selector(refresh), for: UIControlEvents.valueChanged)
+        self.postTableView.insertSubview(refreshControl, at: 0)
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    func refresh(_ refreshControl: UIRefreshControl){
+        loadFromNetwork()
+        refreshControl.endRefreshing()
     }
     
     func loadFromNetwork(){
@@ -38,6 +52,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
             delegateQueue:OperationQueue.main
         )
         
+        SVProgressHUD.show()
         let task : URLSessionDataTask = session.dataTask(
             with: request as URLRequest,
             completionHandler: { (data, response, error) in
@@ -50,7 +65,9 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
                         
                         self.posts = responseFieldDictionary["posts"] as! [NSDictionary]
                         self.postTableView.reloadData()
+                        
                     }
+                    SVProgressHUD.dismiss()
                 }
         });
         task.resume()
@@ -79,6 +96,10 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         
         if let name = post.value(forKeyPath: "blog_name") as? String{
             cell.usernameLabel.text = name
+        }
+        
+        if let caption = post.value(forKeyPath: "caption") as? String{
+            cell.captionLabel.text = caption
         }
         
         cell.profilePosterImageView.layer.cornerRadius = 25
