@@ -8,15 +8,20 @@
 
 
 import UIKit
+import AFNetworking
 
-class HomeViewController: UIViewController {
+class HomeViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
     var posts: [NSDictionary] = []
+    var profilePosterURL: URL = URL(string: "https://api.tumblr.com/v2/blog/humansofnewyork.tumblr.com/avatar?api_key=Q6vHoaVm5L1u2ZAW1fqv3Jw48gFzYVg9P0vH0VHl3GVy6quoGV")!
+    
+    @IBOutlet weak var postTableView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.postTableView.delegate = self
+        self.postTableView.dataSource = self
         loadFromNetwork()
-        // Do any additional setup after loading the view.
     }
 
     override func didReceiveMemoryWarning() {
@@ -39,18 +44,48 @@ class HomeViewController: UIViewController {
                 if let data = data {
                     if let responseDictionary = try! JSONSerialization.jsonObject(
                         with: data, options:[]) as? NSDictionary {
-                        print("responseDictionary: \(responseDictionary)")
+//                        print("responseDictionary: \(responseDictionary)")
             
                         let responseFieldDictionary = responseDictionary["response"] as! NSDictionary
                         
                         self.posts = responseFieldDictionary["posts"] as! [NSDictionary]
+                        self.postTableView.reloadData()
                     }
                 }
         });
         task.resume()
     }
     
-
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return self.posts.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "PostTableViewCell", for: indexPath) as! PostTableViewCell
+        let post = self.posts[indexPath.row]
+        if let photos = post.value(forKeyPath: "photos") as? [NSDictionary]{
+//            print("got photos")
+            if let postImageUrlString = photos[0].value(forKeyPath: "original_size.url") as? String{
+//                print("got original_size.url")
+                if let postImageUrl = URL(string: postImageUrlString){
+//                    print("convert string to url")
+                    cell.postPosterImageView.setImageWith(postImageUrl)
+                    cell.profilePosterImageView.setImageWith(self.profilePosterURL)
+                }
+            }
+            
+        }
+        
+        if let name = post.value(forKeyPath: "blog_name") as? String{
+            cell.usernameLabel.text = name
+        }
+        
+        cell.profilePosterImageView.layer.cornerRadius = 25
+        cell.profilePosterImageView.layer.masksToBounds = true
+        return cell
+        
+    }
     /*
     // MARK: - Navigation
 

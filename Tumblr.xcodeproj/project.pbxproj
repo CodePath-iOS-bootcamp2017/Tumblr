@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		243BCC891E440EF80071C142 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 243BCC881E440EF80071C142 /* HomeViewController.swift */; };
+		243BCC8B1E4415690071C142 /* PostTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 243BCC8A1E4415690071C142 /* PostTableViewCell.swift */; };
 		243F1AF41E440A5E00CD3BFA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 243F1AF31E440A5E00CD3BFA /* AppDelegate.swift */; };
 		243F1AF91E440A5E00CD3BFA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 243F1AF71E440A5E00CD3BFA /* Main.storyboard */; };
 		243F1AFC1E440A5E00CD3BFA /* Tumblr.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 243F1AFA1E440A5E00CD3BFA /* Tumblr.xcdatamodeld */; };
@@ -19,6 +20,7 @@
 /* Begin PBXFileReference section */
 		0DA1D7B4A3EAD8B9D8B63F0E /* Pods_Tumblr.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Tumblr.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		243BCC881E440EF80071C142 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		243BCC8A1E4415690071C142 /* PostTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostTableViewCell.swift; sourceTree = "<group>"; };
 		243F1AF01E440A5E00CD3BFA /* Tumblr.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Tumblr.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		243F1AF31E440A5E00CD3BFA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		243F1AF81E440A5E00CD3BFA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -53,6 +55,7 @@
 		243BCC861E440C0C0071C142 /* views */ = {
 			isa = PBXGroup;
 			children = (
+				243BCC8A1E4415690071C142 /* PostTableViewCell.swift */,
 			);
 			name = views;
 			sourceTree = "<group>";
@@ -233,6 +236,7 @@
 				243F1AFC1E440A5E00CD3BFA /* Tumblr.xcdatamodeld in Sources */,
 				243F1AF41E440A5E00CD3BFA /* AppDelegate.swift in Sources */,
 				243BCC891E440EF80071C142 /* HomeViewController.swift in Sources */,
+				243BCC8B1E4415690071C142 /* PostTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
