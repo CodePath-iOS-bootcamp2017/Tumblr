@@ -127,9 +127,11 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         return self.posts.count
     }
     
+    
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "PostTableViewCell", for: indexPath) as! PostTableViewCell
-        let post = self.posts[indexPath.row]
+        let post = self.posts[indexPath.section]
         if let photos = post.value(forKeyPath: "photos") as? [NSDictionary]{
 //            print("got photos")
             if let postImageUrlString = photos[0].value(forKeyPath: "original_size.url") as? String{
@@ -235,7 +237,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         if let cell = sender as? PostTableViewCell{
             if let selectedCellIndex = self.postTableView.indexPath(for: cell){
                 if let detailsViewController = segue.destination as? DetailsViewController{
-                    detailsViewController.post = self.posts[selectedCellIndex.row]
+                    detailsViewController.post = self.posts[selectedCellIndex.section]
                 }
             }
         }
