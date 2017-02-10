@@ -59,7 +59,7 @@
                                         <connections>
                                             <outlet property="captionLabel" destination="pbu-OX-WzL" id="Z4l-00-gbi"/>
                                             <outlet property="postPosterImageView" destination="aJi-yu-AvO" id="gvQ-sI-43p"/>
-                                            <segue destination="uwm-SL-5UX" kind="show" id="1jU-fu-NmD"/>
+                                            <segue destination="uwm-SL-5UX" kind="show" identifier="detailsSegue" id="1jU-fu-NmD"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -140,11 +140,59 @@
                         <outlet property="postImageView" destination="1PS-9j-Jy9" id="Dn5-qM-Nhv"/>
                         <outlet property="profileImageView" destination="8Du-1B-Jhe" id="ZEK-JY-wuC"/>
                         <outlet property="usernameLabel" destination="TGh-v1-O6i" id="k0H-3W-06Y"/>
+                        <segue destination="Kxu-7C-Fol" kind="presentation" identifier="fullScreenSegue" id="Bm2-vw-5HM"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LMg-Sc-OVF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1845.5999999999999" y="89.505247376311857"/>
+        </scene>
+        <!--Photo Zoom View Controller-->
+        <scene sceneID="HKk-eW-3Qo">
+            <objects>
+                <viewController id="KDz-o6-8Y8" customClass="PhotoZoomViewController" customModule="Tumblr" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="S5Z-hQ-xWd"/>
+                        <viewControllerLayoutGuide type="bottom" id="YYC-TJ-5Ng"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="K5m-Bs-eGp">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" maximumZoomScale="3" translatesAutoresizingMaskIntoConstraints="NO" id="buh-Lt-V9M">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="aqC-a1-PzF">
+                                        <rect key="frame" x="0.0" y="-64" width="375" height="667"/>
+                                    </imageView>
+                                </subviews>
+                            </scrollView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="buh-Lt-V9M" firstAttribute="leading" secondItem="K5m-Bs-eGp" secondAttribute="leading" id="1DA-VE-zfL"/>
+                            <constraint firstItem="aqC-a1-PzF" firstAttribute="height" secondItem="K5m-Bs-eGp" secondAttribute="height" id="3ot-wQ-ob4"/>
+                            <constraint firstItem="buh-Lt-V9M" firstAttribute="width" secondItem="K5m-Bs-eGp" secondAttribute="width" id="IMb-Zp-WXC"/>
+                            <constraint firstItem="buh-Lt-V9M" firstAttribute="top" secondItem="K5m-Bs-eGp" secondAttribute="top" id="YLm-ou-1L1"/>
+                            <constraint firstItem="aqC-a1-PzF" firstAttribute="width" secondItem="K5m-Bs-eGp" secondAttribute="width" id="hEl-yj-y4k"/>
+                            <constraint firstItem="buh-Lt-V9M" firstAttribute="height" secondItem="K5m-Bs-eGp" secondAttribute="height" id="t9B-3H-Ym7"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="XsU-cC-JLf">
+                        <barButtonItem key="rightBarButtonItem" title="Close" id="oC2-OY-YzA">
+                            <connections>
+                                <action selector="closeScreen:" destination="KDz-o6-8Y8" id="0fC-vc-7Ly"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="photoImageView" destination="aqC-a1-PzF" id="wft-JR-Ljc"/>
+                        <outlet property="scrollview" destination="buh-Lt-V9M" id="PM8-Ys-ocv"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="OAq-r7-opS" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3672.8000000000002" y="89.505247376311857"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="chj-Fw-ys3">
@@ -163,6 +211,24 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nch-6c-EFD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="32.799999999999997" y="89.505247376311857"/>
+        </scene>
+        <!--Zoom Navigation Controller-->
+        <scene sceneID="9QK-vj-96r">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Kxu-7C-Fol" customClass="ZoomNavigationController" customModule="Tumblr" customModuleProvider="target" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="JIi-4W-eoq">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="KDz-o6-8Y8" kind="relationship" relationship="rootViewController" id="FbY-IZ-epo"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="H0N-ip-LFS" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2733.5999999999999" y="89.505247376311857"/>
         </scene>
     </scenes>
 </document>

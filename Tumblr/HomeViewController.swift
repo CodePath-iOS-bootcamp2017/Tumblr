@@ -234,14 +234,14 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let cell = sender as? PostTableViewCell{
-            if let selectedCellIndex = self.postTableView.indexPath(for: cell){
-                if let detailsViewController = segue.destination as? DetailsViewController{
-                    detailsViewController.post = self.posts[selectedCellIndex.section]
+        if segue.identifier == "detailsSegue"{
+            if let cell = sender as? PostTableViewCell{
+                if let selectedCellIndex = self.postTableView.indexPath(for: cell){
+                    if let detailsViewController = segue.destination as? DetailsViewController{
+                        detailsViewController.post = self.posts[selectedCellIndex.section]
+                    }
                 }
             }
         }
     }
-    
-
 }

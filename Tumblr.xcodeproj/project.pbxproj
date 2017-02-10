@@ -16,6 +16,8 @@
 		243F1B011E440A5E00CD3BFA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 243F1AFF1E440A5E00CD3BFA /* LaunchScreen.storyboard */; };
 		247217641E4D552C00F4B9EA /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 247217631E4D552C00F4B9EA /* DetailsViewController.swift */; };
 		247217661E4D8A7C00F4B9EA /* InfiniteScrollActivityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 247217651E4D8A7B00F4B9EA /* InfiniteScrollActivityView.swift */; };
+		247217681E4DA31500F4B9EA /* PhotoZoomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 247217671E4DA31500F4B9EA /* PhotoZoomViewController.swift */; };
+		2472176A1E4DA9D700F4B9EA /* ZoomNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 247217691E4DA9D700F4B9EA /* ZoomNavigationController.swift */; };
 		3FB19DCF635EF08B11F08B9F /* Pods_Tumblr.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0DA1D7B4A3EAD8B9D8B63F0E /* Pods_Tumblr.framework */; };
 /* End PBXBuildFile section */
 
@@ -32,6 +34,8 @@
 		243F1B021E440A5E00CD3BFA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		247217631E4D552C00F4B9EA /* DetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
 		247217651E4D8A7B00F4B9EA /* InfiniteScrollActivityView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InfiniteScrollActivityView.swift; sourceTree = "<group>"; };
+		247217671E4DA31500F4B9EA /* PhotoZoomViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoZoomViewController.swift; sourceTree = "<group>"; };
+		247217691E4DA9D700F4B9EA /* ZoomNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZoomNavigationController.swift; sourceTree = "<group>"; };
 		2A0DD5C4D24883D4EFE71CEA /* Pods-Tumblr.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tumblr.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Tumblr/Pods-Tumblr.debug.xcconfig"; sourceTree = "<group>"; };
 		EB420376BEC90319D3754FDE /* Pods-Tumblr.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tumblr.release.xcconfig"; path = "Pods/Target Support Files/Pods-Tumblr/Pods-Tumblr.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -70,6 +74,8 @@
 			children = (
 				243BCC881E440EF80071C142 /* HomeViewController.swift */,
 				247217631E4D552C00F4B9EA /* DetailsViewController.swift */,
+				247217671E4DA31500F4B9EA /* PhotoZoomViewController.swift */,
+				247217691E4DA9D700F4B9EA /* ZoomNavigationController.swift */,
 			);
 			name = view_controllers;
 			sourceTree = "<group>";
@@ -241,7 +247,9 @@
 			files = (
 				247217661E4D8A7C00F4B9EA /* InfiniteScrollActivityView.swift in Sources */,
 				243F1AFC1E440A5E00CD3BFA /* Tumblr.xcdatamodeld in Sources */,
+				2472176A1E4DA9D700F4B9EA /* ZoomNavigationController.swift in Sources */,
 				243F1AF41E440A5E00CD3BFA /* AppDelegate.swift in Sources */,
+				247217681E4DA31500F4B9EA /* PhotoZoomViewController.swift in Sources */,
 				243BCC891E440EF80071C142 /* HomeViewController.swift in Sources */,
 				243BCC8B1E4415690071C142 /* PostTableViewCell.swift in Sources */,
 				247217641E4D552C00F4B9EA /* DetailsViewController.swift in Sources */,

@@ -29,6 +29,11 @@ class DetailsViewController: UIViewController {
                 if let postImageUrl = URL(string: postImageUrlString){
                     self.postImageView.setImageWith(postImageUrl)
                     self.profileImageView.setImageWith(self.profilePosterURL)
+                    
+                    let photoTapGesture = UITapGestureRecognizer()
+                    photoTapGesture.addTarget(self, action: #selector(photoTapped))
+                    self.postImageView.isUserInteractionEnabled = true
+                    self.postImageView.addGestureRecognizer(photoTapGesture)
                 }
             }
             
@@ -45,6 +50,10 @@ class DetailsViewController: UIViewController {
         self.profileImageView.layer.cornerRadius = 40
         self.profileImageView.layer.masksToBounds = true
     }
+    
+    func photoTapped(){
+        performSegue(withIdentifier: "fullScreenSegue", sender: self)
+    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -52,14 +61,19 @@ class DetailsViewController: UIViewController {
     }
     
 
-    /*
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+        if segue.identifier == "fullScreenSegue" {
+            
+            let zoomNavigationController = segue.destination as! ZoomNavigationController
+            let photoZoomViewController = zoomNavigationController.viewControllers.first as?PhotoZoomViewController
+            photoZoomViewController?.post = self.post
+            
+        }
     }
-    */
+    
 
 }
