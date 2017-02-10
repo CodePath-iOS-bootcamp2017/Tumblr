@@ -23,7 +23,7 @@ class DetailsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         if let photos = post.value(forKeyPath: "photos") as? [NSDictionary]{
             if let postImageUrlString = photos[0].value(forKeyPath: "original_size.url") as? String{
                 if let postImageUrl = URL(string: postImageUrlString){
