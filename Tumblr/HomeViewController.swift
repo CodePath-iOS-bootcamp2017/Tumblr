@@ -108,15 +108,22 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        self.postTableView.deselectRow(at: indexPath, animated: true)
+    }
     
-    /*
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+        if let cell = sender as? PostTableViewCell{
+            if let selectedCellIndex = self.postTableView.indexPath(for: cell){
+                if let detailsViewController = segue.destination as? DetailsViewController{
+                    detailsViewController.post = self.posts[selectedCellIndex.row]
+                }
+            }
+        }
     }
-    */
+    
 
 }

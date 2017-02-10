@@ -14,6 +14,7 @@
 		243F1AFC1E440A5E00CD3BFA /* Tumblr.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 243F1AFA1E440A5E00CD3BFA /* Tumblr.xcdatamodeld */; };
 		243F1AFE1E440A5E00CD3BFA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 243F1AFD1E440A5E00CD3BFA /* Assets.xcassets */; };
 		243F1B011E440A5E00CD3BFA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 243F1AFF1E440A5E00CD3BFA /* LaunchScreen.storyboard */; };
+		247217641E4D552C00F4B9EA /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 247217631E4D552C00F4B9EA /* DetailsViewController.swift */; };
 		3FB19DCF635EF08B11F08B9F /* Pods_Tumblr.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0DA1D7B4A3EAD8B9D8B63F0E /* Pods_Tumblr.framework */; };
 /* End PBXBuildFile section */
 
@@ -28,6 +29,7 @@
 		243F1AFD1E440A5E00CD3BFA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		243F1B001E440A5E00CD3BFA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		243F1B021E440A5E00CD3BFA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		247217631E4D552C00F4B9EA /* DetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
 		2A0DD5C4D24883D4EFE71CEA /* Pods-Tumblr.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tumblr.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Tumblr/Pods-Tumblr.debug.xcconfig"; sourceTree = "<group>"; };
 		EB420376BEC90319D3754FDE /* Pods-Tumblr.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tumblr.release.xcconfig"; path = "Pods/Target Support Files/Pods-Tumblr/Pods-Tumblr.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -64,6 +66,7 @@
 			isa = PBXGroup;
 			children = (
 				243BCC881E440EF80071C142 /* HomeViewController.swift */,
+				247217631E4D552C00F4B9EA /* DetailsViewController.swift */,
 			);
 			name = view_controllers;
 			sourceTree = "<group>";
@@ -237,6 +240,7 @@
 				243F1AF41E440A5E00CD3BFA /* AppDelegate.swift in Sources */,
 				243BCC891E440EF80071C142 /* HomeViewController.swift in Sources */,
 				243BCC8B1E4415690071C142 /* PostTableViewCell.swift in Sources */,
+				247217641E4D552C00F4B9EA /* DetailsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
